@@ -2,18 +2,100 @@
 <html lang="en" ng-app="myApp">
 <head>
   <meta charset="utf-8">
-  <title>My AngularJS App</title>
+  <title>Skapalón</title>
   <link rel="stylesheet" href="css/app.css"/>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 </head>
-<body>
-  <ul class="menu">
-    <li><a href="#/view1">view1</a></li>
-    <li><a href="#/view2">view2</a></li>
-  </ul>
+<body ng-controller="ProjectListCtrl">
 
-  <div ng-view></div>
+  <div class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <a data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar">
+          <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </a>
+        <div class="icon">
+          <a href="http://www.skapalon.is" target="_blank" class="brand"><img src="img/skapalon.png">
+        </div>
+        </a>
+        <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="#" target="_blank">Projects</a></li>
+              <li><a href="" target="_blank">Testimonials</a></li>
+              <li><a href="" target="_blank">Our process</a></li>
+              <li><a href="http://www.skapalon.is/Umokkur/" target="_blank">About us</a></li>
+              <li><a href="" target="_blank">Contact us</a></li>
+            </ul>
+          </div>
+      </div>
+  </div>
+ <div class="container-fluid">
+  <div class = "row-fluid">
+    <span class ="selected-projects">
+      Selected Projects
+    </span>
+    <span class="filter-list">
+      <ul class="list-inline">
+        <li class="active"><a href="" target="_blank">All</a> </li>
+        <li><a href="" target="_blank">Web</a></li>
+        <li><a href="" target="_blank">Mobile</a></li>
+        <li><a href="" target="_blank">Apps</a></li>
+        <li><a href="" target="_blank">Banners</a></li>
+      </ul>
+    </span>
+  </div>
+  <div class="row-fluid" style="background: #EFEFEF;">
+    <ul class = "thumbnails">
+      <li ng-repeat ="project in projects" class="thumbnail">
+        <div>
+       <a href="{{project.website}}" ><img ng-src="{{project.image}}" width="200" height="231" ></a>
+     </div>
+        <span class="project-name">{{project.name}}</span>
+        <span class="project-type">{{project.type}}</span>
+        <div class="project-website"><a href= "{{project.website}}">{{project.website}}</a></div>
+      <li>
+    </ul>
+    <div class="pager-page">
+      <button id="Back" class="btn">Back</button>
+      <button id="Next" class="btn">Next</button>
+      <ol id="pagination">
+      <li><a href="#project1" class="active">1</a></li>
+      <li><a href="#project2">2</a></li>
+      <li><a href="#project3">3</a></li>
+      </ol> 
+    </div>
+  </div>
+  <div class = "row-fluid" style="margin-bottom:65px">
+    <div class="address">
+      <div style="color:#D40050;"><strong>Skapalón</strong></div>
+      <span><p style="margin-top: 10px;">+354 553 1080 </span><span style="padding-left:50px;">Fiskislóð 31</p></span>
+      <p><strong style="color:black; padding-right:25px;">info@skapalon.is</strong> 101 Reykjavik, Iceland</p>
+    </div>
+    <div class ="from-twitter">
+      <p style="color: black;">From Twitter <span style="color:#BEBEBE;">(21 hours ago)</span>
+      <div>
+        <p>Skapalón með 8 tilnefningar til Nexpo verðlaunanna, opð er fyrir kosningar!</p>
+        <p><strong>http://bit.ly/hPrzuz</strong></p>
+      </div>
 
-  <div>Angular seed app: v<span app-version></span></div>
+    </div>
+      <ul class = "from-elsewhere">
+        <li><a href="www.facebook.com"><img src="img/facebook.png"></a></li>
+        <li><a href="www.twitter.com"><img src="img/twitter.png" style="margin-top:-6px"></a></li>
+        <li><a href=""><img src="img/dribble.png"></a></li>
+      </ul>
+    <div style="float:right;position: absolute; margin-left:974px;">
+      <p style="color:black">Elsewhere</p>
+    </div>
+
+ </div>
+
+        <!--Body content-->
+
+        
 
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
